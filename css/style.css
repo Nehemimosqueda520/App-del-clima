@@ -1,0 +1,83 @@
+
+        /* Estilos para el modo nocturno */
+        .toggle-mode {
+            margin-right: 10px; /* Espacio a la derecha */
+        }
+        
+        .navbar .logo {
+            background-color: #0b75e6;
+            font-size: 24px;
+            font-weight: bold;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 36px;
+            display:flex ; /* Ajustar el tamaño del texto */ 
+        }
+        /* Estilos para la sección del clima */
+        #clima-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .weather-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            width: 200px;
+        }
+        .weather-card img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+        .weather-card p {
+            margin-bottom: 5px;
+        }
+        /* Estilos para el buscador */
+        .search-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .search-input {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .search-btn {
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .dark-mode {
+            /* Define los estilos para el modo nocturno */
+            /* Por ejemplo, puedes cambiar el color de fondo, texto, etc. */
+            background-color: #1f1f1f;
+            color: #ffffff;
+            .weather-card {
+                background-color: #1f1f1f; /* Fondo negro */
+                border: 2px solid #ffffff; /* Borde blanco */
+            }
+        
+            /* Cambia el color del texto dentro de las tarjetas */
+            .weather-card h3,
+            .weather-card p {
+                color: #ffffff; /* Color del texto blanco */
+            }
+        }
+
+        #light-icon {
+            display: none;
+        }
+        
+        .dark-mode #dark-icon {
+            display: none;
+        }
+        
+        .dark-mode #light-icon {
+            display: block;
+        }

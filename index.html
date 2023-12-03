@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimAPP</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="menu">
+            <!-- Puedes agregar más elementos al menú si es necesario -->
+        </div>
+        <div class="toggle-mode">
+            <input type="checkbox" id="switch" name="theme" onclick="toggleTheme()">
+            <label for="switch" class="toggle-label">
+                <i class='bx bxs-moon' id="dark-icon"></i> <!-- Icono de luna -->
+                <i class='bx bxs-sun' id="light-icon"></i> <!-- Icono de sol -->
+            </label>
+        </div>
+        <div class="logo">ClimAPP</div>
+    </nav>
+        <div class="search-box">
+            <!-- Usamos un formulario para el buscador -->
+            <form onsubmit="event.preventDefault(); searchWeather();">
+                <input type="text" class="search-input" id="city-input" placeholder="Buscar ciudad">
+                <button type="submit" class="search-btn">
+                    <i class='bx bx-search'></i>
+                </button>
+            </form>
+        </div>
+        </div>
+
+        <div id="clima-info">
+            <!-- Sección para mostrar el clima -->
+            <div class="weather-card" id="today">
+                <h3>Hoy</h3>
+                <img src="" alt="Hoy">
+                <p id="today-description"></p>
+            </div>
+            <div class="weather-card" id="tomorrow">
+                <h3>Mañana</h3>
+                <img src="" alt="Mañana">
+                <p id="tomorrow-description"></p>
+            </div>
+            <div class="weather-card" id="day-after-tomorrow">
+                <h3>Pasado mañana</h3>
+                <img src="" alt="Pasado mañana">
+                <p id="day-after-tomorrow-description"></p>
+            </div>
+        </div>
+
+       
+    <script src="js/components.js"></script>
+</body>
+</html>
