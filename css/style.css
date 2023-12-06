@@ -3,6 +3,11 @@
         .toggle-mode {
             margin-right: 10px; /* Espacio a la derecha */
         }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
         
         .navbar .logo {
             background-color: #0b75e6;

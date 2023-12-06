@@ -20,13 +20,10 @@
             <!-- Puedes agregar más elementos al menú si es necesario -->
         </div>
         <div class="toggle-mode">
-            <input type="checkbox" id="switch" name="theme" onclick="toggleTheme()">
-            <label for="switch" class="toggle-label">
-                <i class='bx bxs-moon' id="dark-icon"></i> <!-- Icono de luna -->
-                <i class='bx bxs-sun' id="light-icon"></i> <!-- Icono de sol -->
-            </label>
+            <div class="logo">ClimAPP</div>
+            <i class='bx bx-moon' id="dark-icon" onclick="toggleTheme()"></i>
+            <i class='bx bx-sun' id="light-icon" style="display: none;" onclick="toggleTheme()"></i>
         </div>
-        <div class="logo">ClimAPP</div>
     </nav>
         <div class="search-box">
             <!-- Usamos un formulario para el buscador -->
