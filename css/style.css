@@ -1,15 +1,11 @@
 
-        /* Estilos para el modo nocturno */
-        .toggle-mode {
-            margin-right: 10px; /* Espacio a la derecha */
-        }
 
         html {
             font-size: 62.5%;
             overflow-x: hidden;
         }
         
-        .navbar .logo {
+        .navbar {
             background-color: #0b75e6;
             font-size: 24px;
             font-weight: bold;
@@ -17,6 +13,11 @@
             padding: 10px 0;
             font-size: 36px;
             display:flex ; /* Ajustar el tamaño del texto */ 
+        }
+
+        .logo {
+            margin-left: 10%;
+            font-family: 'Times New Roman', Times, serif;
         }
         /* Estilos para la sección del clima */
         #clima-info {
@@ -57,32 +58,38 @@
             color: #fff;
             cursor: pointer;
         }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #0b75e6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        
+        .footer-left,
+        .footer-right {
+            flex: 1;
+            margin: 0 10px;
+        }
+        
+        .footer-center {
+            flex: 0 0 auto;
+            text-align: center;
+        }
 
-        .dark-mode {
-            /* Define los estilos para el modo nocturno */
-            /* Por ejemplo, puedes cambiar el color de fondo, texto, etc. */
-            background-color: #1f1f1f;
-            color: #ffffff;
-            .weather-card {
-                background-color: #1f1f1f; /* Fondo negro */
-                border: 2px solid #ffffff; /* Borde blanco */
-            }
-        
-            /* Cambia el color del texto dentro de las tarjetas */
-            .weather-card h3,
-            .weather-card p {
-                color: #ffffff; /* Color del texto blanco */
-            }
+        .footer-right{
+            margin-left: 60% ;
         }
 
-        #light-icon {
-            display: none;
+        a {
+            color: orange;
+        }
+
+        a:hover {
+            color: white;
         }
         
-        .dark-mode #dark-icon {
-            display: none;
-        }
-        
-        .dark-mode #light-icon {
-            display: block;
-        }
