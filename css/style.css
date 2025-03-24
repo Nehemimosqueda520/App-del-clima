@@ -98,23 +98,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px;
+            padding: 10px 5%;
         }
         
-        .footer-left,
-        .footer-right {
-            flex: 1;
-            margin: 0 10px;
-        }
         
-        .footer-center {
-            flex: 0 0 auto;
-            text-align: center;
-        }
-
-        .footer-right{
-            margin-left: 60% ;
-        }
 
         a {
             color: var(--warning-color);
@@ -150,4 +137,29 @@
         .expand-btn:active {
             background-color: var(--light-color);
             color: var(--dark-color);
+        }
+
+
+        @media (max-width: 768px) {
+            .navbar {
+                font-size: 24px;
+            }
+            .logo {
+                margin-left: 5%;
+            }
+            #clima-info {
+                flex-direction: column;
+                display: grid;
+            }
+            .weather-card {
+                margin-bottom: 20px;
+            }
+
+            .absolute {
+                position: static;      
+            }
+
+            #api-link, #api-image {
+                display: none;
+            }
         }
