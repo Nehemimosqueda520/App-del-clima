@@ -1,4 +1,4 @@
-
+const footer = document.getElementById('footer');
 async function searchWeather() {
   const apiKey = 'c4b6d68355b64c67840235826230212'; 
   const cityInput = document.getElementById('city-input').value;
@@ -80,19 +80,24 @@ async function getHourlyForecast(city, index) {
 async function toggleHourlyForecast(cardId) {
     const card = document.getElementById(cardId);
     const hourlyForecastDiv = card.querySelector('.hourly-forecast');
+    
   
     if (hourlyForecastDiv.style.display === 'block') {
         hourlyForecastDiv.style.display = 'none';
+        footer.classList.toggle("absolute");
     } else {
         const city = document.getElementById('city-input').value;
         const index = cardId === 'today' ? 0 : cardId === 'tomorrow' ? 1 : 2;
         const hourlyForecast = await getHourlyForecast(city, index);
+        footer.classList.toggle("absolute");
+        
   
         if (hourlyForecast) {
+            
             const hourlyForecastContent = hourlyForecast.map(hour => {
                 return `
                     <div class="hourly-weather">
-                        <h3>============================</h3>
+                        <hr>
                         <h3>${hour.time.slice(11, 16)}</h3>
                         <img src="${hour.condition.icon}" alt="${hour.condition.text}">
                         <p>${hour.condition.text}</p>
@@ -106,3 +111,6 @@ async function toggleHourlyForecast(cardId) {
         }
     }
   }
+
+
+

@@ -1,23 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
+        :root {
+            --primary-color: #3d94f0;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --info-color: #17a2b8;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
         html {
             font-size: 62.5%;
-            overflow-x: hidden;
+            overflow: auto;
+        }
+
+        body {
+            font-size: 1.6rem;
+            background-color: var(--light-color);
+            color: var(--text-color);
         }
         
         .navbar {
-            background-color: #0b75e6;
+            background-color: var(--primary-color);
             font-size: 24px;
-            font-weight: bold;
-            align-items: center;
             padding: 10px 0;
             font-size: 36px;
             display:flex ; /* Ajustar el tamaño del texto */ 
         }
 
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
         .logo {
             margin-left: 10%;
-            font-family: 'Times New Roman', Times, serif;
+            font-weight: 500;
         }
         /* Estilos para la sección del clima */
         #clima-info {
@@ -32,6 +60,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             background-color: #fff;
             width: 200px;
+            border: 1px solid #ccc;
         }
         .weather-card img {
             max-width: 100px;
@@ -54,15 +83,17 @@
             padding: 8px 12px;
             border-radius: 5px;
             border: none;
-            background-color: #007bff;
-            color: #fff;
+            background-color: var(--primary-color);
+            color: var(--light-color);
             cursor: pointer;
         }
-        .footer {
-            position: fixed;
-            bottom: 0;
+        .search-btn:hover {
+            background-color: var(--dark-color);
+        }
+        #footer {
+            align-items: flex-end;      
             width: 100%;
-            background-color: #0b75e6;
+            background-color: var(--primary-color);
             color: white;
             display: flex;
             align-items: center;
@@ -86,10 +117,37 @@
         }
 
         a {
-            color: orange;
+            color: var(--warning-color);
         }
 
         a:hover {
-            color: white;
+            color: var(--danger-color);
+        }
+
+
+        .sticky {
+            position: sticky;
+            bottom: 0;
         }
         
+        .absolute {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .expand-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .expand-btn:hover {
+            background-color: var(--dark-color);
+        }
+
+        .expand-btn:active {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
