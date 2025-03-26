@@ -1,4 +1,5 @@
 const footer = document.getElementById('footer');
+
 async function searchWeather() {
   const apiKey = 'c4b6d68355b64c67840235826230212'; 
   const cityInput = document.getElementById('city-input').value;
@@ -111,6 +112,33 @@ async function toggleHourlyForecast(cardId) {
         }
     }
   }
+
+  setWeatherIcon();
+
+  async function setWeatherIcon() {
+    try {
+        // Simulación de respuesta de la API
+        const weatherData = { condition: "sunny" }; // Puedes cambiarlo dinámicamente
+
+        // Crear el elemento <link> para el favicon
+        const link = document.createElement("link");
+        link.rel = "icon";
+        link.type = "image/png";
+
+        // Definir la imagen del ícono dependiendo del clima
+        if (weatherData.condition === "sunny") {
+            link.href = "images/sun.png"; // URL del ícono del sol
+        } else {
+            link.href = "https://example.com/icons/cloud.png"; // Otro ícono de clima
+        }
+
+        // Agregar el <link> al <head>
+        document.head.appendChild(link);
+    } catch (error) {
+        console.error("Error obteniendo el clima:", error);
+    }
+}
+
 
 
 
