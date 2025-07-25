@@ -57,11 +57,12 @@ async function getWeatherByUserLocation() {
 window.onload = getWeatherByUserLocation;
 
 async function getHourlyForecast(city, index) {
-  const apiKey = 'c4b6d68355b64c67840235826230212'; 
+  const apiKey = 'c4b6d68355b64c67840235826230212';
   const lang = 'es';
 
   try {
-      const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=1&lang=${lang}`);
+      const days = index + 1;
+      const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=${days}&lang=${lang}`);
       const data = await response.json();
 
       if (data.error) {
@@ -69,7 +70,7 @@ async function getHourlyForecast(city, index) {
           return null;
       }
 
-      return data.forecast.forecastday[0].hour;
+      return data.forecast.forecastday[index].hour;
   } catch (error) {
       console.error('Hubo un error al obtener datos del clima por horas:', error);
       alert('Hubo un error al obtener datos del clima por horas. Por favor, inténtalo de nuevo más tarde.');
