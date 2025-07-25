@@ -57,11 +57,12 @@ async function getWeatherByUserLocation() {
 window.onload = getWeatherByUserLocation;
 
 async function getHourlyForecast(city, index) {
-  const apiKey = 'c4b6d68355b64c67840235826230212'; 
+  const apiKey = 'c4b6d68355b64c67840235826230212';
   const lang = 'es';
 
   try {
-      const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=1&lang=${lang}`);
+      const days = index + 1;
+      const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=${days}&lang=${lang}`);
       const data = await response.json();
 
       if (data.error) {
@@ -69,7 +70,7 @@ async function getHourlyForecast(city, index) {
           return null;
       }
 
-      return data.forecast.forecastday[0].hour;
+      return data.forecast.forecastday[index].hour;
   } catch (error) {
       console.error('Hubo un error al obtener datos del clima por horas:', error);
       alert('Hubo un error al obtener datos del clima por horas. Por favor, inténtalo de nuevo más tarde.');
@@ -79,39 +80,41 @@ async function getHourlyForecast(city, index) {
 
 // Función para mostrar u ocultar el pronóstico por horas al hacer clic en la flecha
 async function toggleHourlyForecast(cardId) {
-    const card = document.getElementById(cardId);
-    const hourlyForecastDiv = card.querySelector('.hourly-forecast');
-    
-  
-    if (hourlyForecastDiv.style.display === 'block') {
-        hourlyForecastDiv.style.display = 'none';
-        footer.classList.toggle("absolute");
-    } else {
-        const city = document.getElementById('city-input').value;
-        const index = cardId === 'today' ? 0 : cardId === 'tomorrow' ? 1 : 2;
-        const hourlyForecast = await getHourlyForecast(city, index);
-        footer.classList.toggle("absolute");
-        
-  
-        if (hourlyForecast) {
-            
-            const hourlyForecastContent = hourlyForecast.map(hour => {
-                return `
-                    <div class="hourly-weather">
-                        <hr>
-                        <h3>${hour.time.slice(11, 16)}</h3>
-                        <img src="${hour.condition.icon}" alt="${hour.condition.text}">
-                        <p>${hour.condition.text}</p>
-                        <p>${hour.temp_c}°C</p>
-                    </div>
-                `;
-            }).join('');
-  
-            hourlyForecastDiv.innerHTML = hourlyForecastContent;
-            hourlyForecastDiv.style.display = 'block';
-        }
+  const card = document.getElementById(cardId);
+  const hourlyForecastDiv = card.querySelector('.hourly-forecast');
+
+  if (hourlyForecastDiv.style.display === 'block') {
+    hourlyForecastDiv.style.display = 'none';
+    footer.classList.remove('absolute');
+  } else {
+    const city = document.getElementById('city-input').value.trim();
+    if (!city) {
+      alert('Introduce una ciudad para ver el pronóstico por horas.');
+      return;
+    }
+
+    const index = cardId === 'today' ? 0 : cardId === 'tomorrow' ? 1 : 2;
+    const hourlyForecast = await getHourlyForecast(city, index);
+
+    if (hourlyForecast) {
+      const hourlyForecastContent = hourlyForecast.map(hour => {
+        return `
+          <div class="hourly-weather">
+            <hr>
+            <h3>${hour.time.slice(11, 16)}</h3>
+            <img src="${hour.condition.icon}" alt="${hour.condition.text}">
+            <p>${hour.condition.text}</p>
+            <p>${hour.temp_c}°C</p>
+          </div>
+        `;
+      }).join('');
+
+      hourlyForecastDiv.innerHTML = hourlyForecastContent;
+      hourlyForecastDiv.style.display = 'block';
+      footer.classList.add('absolute');
     }
   }
+}
 
   setWeatherIcon();
 
