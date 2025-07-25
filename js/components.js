@@ -85,7 +85,7 @@ async function toggleHourlyForecast(cardId) {
 
   if (hourlyForecastDiv.style.display === 'block') {
     hourlyForecastDiv.style.display = 'none';
-    footer.classList.add('absolute');
+    footer.classList.add('absolute')
   } else {
     const city = document.getElementById('city-input').value.trim();
     if (!city) {
@@ -112,6 +112,7 @@ async function toggleHourlyForecast(cardId) {
       hourlyForecastDiv.innerHTML = hourlyForecastContent;
       hourlyForecastDiv.style.display = 'block';
       footer.classList.remove('absolute');
+
     }
   }
 }
