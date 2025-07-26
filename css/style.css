@@ -43,10 +43,30 @@
             text-decoration: none;
             margin: 0 10px;
         }
-        .logo {
-            margin-left: 10%;
-            font-weight: 500;
-        }
+.logo {
+    margin-left: 10%;
+    font-weight: 500;
+}
+
+.toggle-mode {
+    margin-left: auto;
+    margin-right: 10%;
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle {
+    margin-left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+#theme-toggle i {
+    pointer-events: none;
+}
         /* Estilos para la sección del clima */
         #clima-info {
             display: flex;
@@ -159,7 +179,33 @@
                 position: static;      
             }
 
-            #api-link, #api-image {
-                display: none;
-            }
+        #api-link, #api-image {
+            display: none;
         }
+        }
+
+/* Tema oscuro */
+body.dark-mode {
+    background-color: #2D2C2C;
+    color: #f8f9fa;
+}
+
+body.dark-mode .weather-card {
+    background-color: #262626;
+    border-color: #444;
+    color: #f8f9fa;
+}
+
+body.dark-mode .search-input {
+    background-color: #444;
+    color: #fff;
+    border-color: #666;
+}
+
+body.dark-mode a {
+    color: #ffc107;
+}
+
+body.dark-mode #theme-toggle {
+    color: #fff;
+}
