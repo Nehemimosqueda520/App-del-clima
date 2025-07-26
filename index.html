@@ -38,33 +38,9 @@
             </form>
         </div>
 
-        <div id="clima-info">
-            <div class="weather-card" id="today">
-                <h3>Hoy</h3>
-                <img src="" alt="Hoy">
-                <p id="today-description"></p>
-                <p id="today-temperature"></p>
-                <button class="expand-btn" onclick="toggleHourlyForecast('today')">Mostrar por horas</button>
-                <div class="hourly-forecast" id="today-hourly-forecast"></div>
-            </div>
-            
-            <div class="weather-card" id="tomorrow">
-                <h3>Mañana</h3>
-                <img src="" alt="Mañana">
-                <p id="tomorrow-description"></p>
-                <p id="tomorrow-temperature"></p>
-                <button class="expand-btn" onclick="toggleHourlyForecast('tomorrow')">Mostrar por horas</button>
-                <div class="hourly-forecast" id="tomorrow-hourly-forecast"></div>
-            </div>
-            
-            <div class="weather-card" id="day-after-tomorrow">
-                <h3>Pasado mañana</h3>
-                <img src="" alt="Pasado mañana">
-                <p id="day-after-tomorrow-description"></p>
-                <p id="day-after-tomorrow-temperature"></p>
-                <button class="expand-btn" onclick="toggleHourlyForecast('day-after-tomorrow')">Mostrar por horas</button>
-                <div class="hourly-forecast" id="day-after-tomorrow-hourly-forecast"></div>
-            </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="clima-info"></div>
+            <div class="swiper-pagination"></div>
         </div>
 
         <footer id="footer" class="absolute">
@@ -79,6 +55,7 @@
                     <img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0">
                 </a>
         </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

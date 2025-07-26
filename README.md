@@ -31,3 +31,7 @@ Esto abrirá un servidor en `http://localhost:3000` desde donde podrás probar l
 
 Desde la barra de navegación puedes cambiar entre el tema claro y oscuro. La elección se guarda en `localStorage` para mantener la preferencia en futuras visitas.
 
+## Pronóstico extendido
+
+La aplicación muestra ahora el clima de los próximos **7 días** utilizando un carrusel. Puedes desplazarte entre las tarjetas para revisar el pronóstico de cada jornada.
+

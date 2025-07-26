@@ -233,3 +233,14 @@ body.dark-mode #theme-toggle {
 body.dark-mode #theme-toggle:hover {
     color: var(--warning-color);
 }
+
+/* Estilos para el carrusel de pronóstico */
+.swiper {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
