@@ -27,3 +27,7 @@ npm start
 
 Esto abrirá un servidor en `http://localhost:3000` desde donde podrás probar la aplicación.
 
+## Modo claro y oscuro
+
+Desde la barra de navegación puedes cambiar entre el tema claro y oscuro. La elección se guarda en `localStorage` para mantener la preferencia en futuras visitas.
+
