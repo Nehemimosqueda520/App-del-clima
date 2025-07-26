@@ -82,11 +82,17 @@ body {
 .weather-card {
     text-align: center;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     background-color: var(--white-color);
-    width: 200px;
+    width: 220px;
+    margin: 10px auto;
     border: 1px solid var(--gray-light-color);
+    transition: transform 0.3s;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
 }
 
 .weather-card img {
@@ -241,4 +247,27 @@ body.dark-mode #theme-toggle:hover {
 .swiper-slide {
     display: flex;
     justify-content: center;
+    padding-bottom: 30px;
+}
+
+.hourly-forecast {
+    display: none;
+}
+
+.hourly-weather {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.collapse-btn {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.collapse-btn:hover {
+    background-color: var(--dark-color);
 }

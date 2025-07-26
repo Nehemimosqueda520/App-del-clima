@@ -69,10 +69,18 @@ function updateWeatherCards(data) {
 export async function toggleHourlyForecast(index) {
   const card = document.getElementById(`day-${index}`);
   const hourlyForecastDiv = card.querySelector('.hourly-forecast');
+  const icon = card.querySelector('img');
+  const expandBtn = card.querySelector('.expand-btn');
 
   if (hourlyForecastDiv.style.display === 'block') {
     hourlyForecastDiv.style.display = 'none';
     footer.classList.add('absolute');
+    icon.style.display = '';
+    expandBtn.style.display = '';
+    const collapse = hourlyForecastDiv.querySelector('.collapse-btn');
+    if (collapse) {
+      collapse.remove();
+    }
   } else {
     const city = document.getElementById('city-input').value.trim();
     if (!city) {
@@ -96,8 +104,16 @@ export async function toggleHourlyForecast(index) {
       }).join('');
 
       hourlyForecastDiv.innerHTML = hourlyForecastContent;
+      const collapseBtn = document.createElement('button');
+      collapseBtn.className = 'collapse-btn';
+      collapseBtn.textContent = 'Mostrar d\u00eda';
+      collapseBtn.onclick = () => toggleHourlyForecast(index);
+      hourlyForecastDiv.prepend(collapseBtn);
+
       hourlyForecastDiv.style.display = 'block';
       footer.classList.remove('absolute');
+      icon.style.display = 'none';
+      expandBtn.style.display = 'none';
     }
   }
 }
