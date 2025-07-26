@@ -123,6 +123,8 @@ body {
 
 .search-btn:hover {
     background-color: var(--dark-color);
+    transform: scale(1.1);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #footer {
@@ -255,7 +257,10 @@ body.dark-mode #theme-toggle:hover {
 }
 
 .recent-city .city-name:hover {
-    background-color: var(--dark-color);
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+    transition: background-color 0.3s, transform 0.3s;
+
 }
 
 body.dark-mode .recent-city .city-name {
@@ -263,15 +268,21 @@ body.dark-mode .recent-city .city-name {
     color: var(--white-color);
 }
 
+body.dark-mode .recent-city .city-name:hover {
+    background-color: var(--primary-color);
+}
+
 .recent-city .close-btn {
     margin-left: 5px;
-    background: transparent;
-    border: none;
-    color: var(--text-color);
+    border: 2px solid var(--danger-color);
+    color: var(--white-color);
     font-size: 1.6rem;
     cursor: pointer;
+    background-color: var(--danger-color);
+    border-radius: 20%;
 }
 
 body.dark-mode .recent-city .close-btn {
     color: var(--white-color);
+    background-color: var(--danger-color);
 }
