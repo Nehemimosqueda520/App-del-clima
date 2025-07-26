@@ -239,8 +239,13 @@ body.dark-mode #theme-toggle:hover {
     margin-top: 10px;
 }
 
-.recent-cities button {
+.recent-city {
+    display: inline-flex;
+    align-items: center;
     margin: 3px;
+}
+
+.recent-city .city-name {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
@@ -249,11 +254,24 @@ body.dark-mode #theme-toggle:hover {
     cursor: pointer;
 }
 
-.recent-cities button:hover {
+.recent-city .city-name:hover {
     background-color: var(--dark-color);
 }
 
-body.dark-mode .recent-cities button {
+body.dark-mode .recent-city .city-name {
     background-color: var(--gray-dark-color);
+    color: var(--white-color);
+}
+
+.recent-city .close-btn {
+    margin-left: 5px;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+body.dark-mode .recent-city .close-btn {
     color: var(--white-color);
 }

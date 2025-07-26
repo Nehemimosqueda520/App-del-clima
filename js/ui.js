@@ -141,12 +141,34 @@ function renderCityHistory() {
   const cities = JSON.parse(localStorage.getItem('recentCities')) || [];
   container.innerHTML = '';
   cities.forEach(city => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'recent-city';
+
     const btn = document.createElement('button');
+    btn.className = 'city-name';
     btn.textContent = city;
     btn.addEventListener('click', () => {
       document.getElementById('city-input').value = city;
       searchWeather();
     });
-    container.appendChild(btn);
+
+    const close = document.createElement('button');
+    close.className = 'close-btn';
+    close.innerHTML = '<i class="bx bx-x"></i>';
+    close.addEventListener('click', (e) => {
+      e.stopPropagation();
+      removeCityFromHistory(city);
+    });
+
+    wrapper.appendChild(btn);
+    wrapper.appendChild(close);
+    container.appendChild(wrapper);
   });
+}
+
+function removeCityFromHistory(city) {
+  let cities = JSON.parse(localStorage.getItem('recentCities')) || [];
+  cities = cities.filter(c => c.toLowerCase() !== city.toLowerCase());
+  localStorage.setItem('recentCities', JSON.stringify(cities));
+  renderCityHistory();
 }
