@@ -233,3 +233,27 @@ body.dark-mode #theme-toggle {
 body.dark-mode #theme-toggle:hover {
     color: var(--warning-color);
 }
+
+.recent-cities {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.recent-cities button {
+    margin: 3px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.recent-cities button:hover {
+    background-color: var(--dark-color);
+}
+
+body.dark-mode .recent-cities button {
+    background-color: var(--gray-dark-color);
+    color: var(--white-color);
+}

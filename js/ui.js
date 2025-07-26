@@ -11,6 +11,7 @@ export async function searchWeather() {
       return;
     }
     updateWeatherCards(data);
+    saveCityToHistory(cityInput);
   } catch (error) {
     console.error('Hubo un error al obtener datos del clima:', error);
     alert('Hubo un error al obtener datos del clima. Por favor, inténtalo de nuevo más tarde.');
@@ -115,4 +116,37 @@ export function setWeatherIcon() {
   } catch (error) {
     console.error('Error obteniendo el clima:', error);
   }
+}
+
+export function loadCityHistory() {
+  renderCityHistory();
+}
+
+function saveCityToHistory(city) {
+  const trimmed = city.trim();
+  if (!trimmed) return;
+  let cities = JSON.parse(localStorage.getItem('recentCities')) || [];
+  cities = cities.filter(c => c.toLowerCase() !== trimmed.toLowerCase());
+  cities.unshift(trimmed);
+  if (cities.length > 5) {
+    cities = cities.slice(0, 5);
+  }
+  localStorage.setItem('recentCities', JSON.stringify(cities));
+  renderCityHistory();
+}
+
+function renderCityHistory() {
+  const container = document.getElementById('recent-cities');
+  if (!container) return;
+  const cities = JSON.parse(localStorage.getItem('recentCities')) || [];
+  container.innerHTML = '';
+  cities.forEach(city => {
+    const btn = document.createElement('button');
+    btn.textContent = city;
+    btn.addEventListener('click', () => {
+      document.getElementById('city-input').value = city;
+      searchWeather();
+    });
+    container.appendChild(btn);
+  });
 }
