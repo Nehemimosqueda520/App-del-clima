@@ -76,8 +76,6 @@ body {
 
 /* Estilos para la sección del clima */
 #clima-info {
-    display: flex;
-    justify-content: space-around;
     margin-top: 30px;
 }
 
@@ -180,9 +178,9 @@ a:hover {
         margin-left: 5%;
     }
 
+    /* El carrusel maneja la distribución de las tarjetas */
     #clima-info {
-        flex-direction: column;
-        display: grid;
+        margin-top: 30px;
     }
 
     .weather-card {
@@ -232,4 +230,15 @@ body.dark-mode #theme-toggle {
 
 body.dark-mode #theme-toggle:hover {
     color: var(--warning-color);
+}
+
+/* Estilos para el carrusel de pronóstico */
+.swiper {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
 }

@@ -34,21 +34,40 @@ export async function getWeatherByUserLocation() {
 }
 
 function updateWeatherCards(data) {
-  document.getElementById('today-description').innerText = data.forecast.forecastday[0].day.condition.text;
-  document.getElementById('tomorrow-description').innerText = data.forecast.forecastday[1].day.condition.text;
-  document.getElementById('day-after-tomorrow-description').innerText = data.forecast.forecastday[2].day.condition.text;
+  const container = document.getElementById('clima-info');
+  container.innerHTML = '';
+  data.forecast.forecastday.forEach((day, index) => {
+    const card = document.createElement('div');
+    card.className = 'weather-card swiper-slide';
+    card.id = `day-${index}`;
+    const title = index === 0 ? 'Hoy' : index === 1 ? 'Mañana' : day.date;
+    card.innerHTML = `
+      <h3>${title}</h3>
+      <img src="${day.day.condition.icon}" alt="${day.day.condition.text}">
+      <p id="day-${index}-description">${day.day.condition.text}</p>
+      <p id="day-${index}-temperature">${day.day.avgtemp_c}°C</p>
+      <button class="expand-btn" onclick="toggleHourlyForecast(${index})">Mostrar por horas</button>
+      <div class="hourly-forecast" id="hourly-${index}"></div>
+    `;
+    container.appendChild(card);
+  });
 
-  document.getElementById('today').getElementsByTagName('img')[0].src = data.forecast.forecastday[0].day.condition.icon;
-  document.getElementById('tomorrow').getElementsByTagName('img')[0].src = data.forecast.forecastday[1].day.condition.icon;
-  document.getElementById('day-after-tomorrow').getElementsByTagName('img')[0].src = data.forecast.forecastday[2].day.condition.icon;
-
-  document.getElementById('today-temperature').innerText = data.forecast.forecastday[0].day.avgtemp_c + '°C';
-  document.getElementById('tomorrow-temperature').innerText = data.forecast.forecastday[1].day.avgtemp_c + '°C';
-  document.getElementById('day-after-tomorrow-temperature').innerText = data.forecast.forecastday[2].day.avgtemp_c + '°C';
+  if (window.mySwiper) {
+    window.mySwiper.update();
+  } else {
+    window.mySwiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  }
 }
 
-export async function toggleHourlyForecast(cardId) {
-  const card = document.getElementById(cardId);
+export async function toggleHourlyForecast(index) {
+  const card = document.getElementById(`day-${index}`);
   const hourlyForecastDiv = card.querySelector('.hourly-forecast');
 
   if (hourlyForecastDiv.style.display === 'block') {
@@ -61,7 +80,6 @@ export async function toggleHourlyForecast(cardId) {
       return;
     }
 
-    const index = cardId === 'today' ? 0 : cardId === 'tomorrow' ? 1 : 2;
     const hourlyForecast = await getHourlyForecast(city, index);
 
     if (hourlyForecast) {
