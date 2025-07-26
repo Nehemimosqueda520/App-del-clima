@@ -123,6 +123,8 @@ body {
 
 .search-btn:hover {
     background-color: var(--dark-color);
+    transform: scale(1.1);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #footer {
@@ -232,4 +234,55 @@ body.dark-mode #theme-toggle {
 
 body.dark-mode #theme-toggle:hover {
     color: var(--warning-color);
+}
+
+.recent-cities {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.recent-city {
+    display: inline-flex;
+    align-items: center;
+    margin: 3px;
+}
+
+.recent-city .city-name {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.recent-city .city-name:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+    transition: background-color 0.3s, transform 0.3s;
+
+}
+
+body.dark-mode .recent-city .city-name {
+    background-color: var(--gray-dark-color);
+    color: var(--white-color);
+}
+
+body.dark-mode .recent-city .city-name:hover {
+    background-color: var(--primary-color);
+}
+
+.recent-city .close-btn {
+    margin-left: 5px;
+    border: 2px solid var(--danger-color);
+    color: var(--white-color);
+    font-size: 1.6rem;
+    cursor: pointer;
+    background-color: var(--danger-color);
+    border-radius: 20%;
+}
+
+body.dark-mode .recent-city .close-btn {
+    color: var(--white-color);
+    background-color: var(--danger-color);
 }
