@@ -65,6 +65,10 @@ body {
     margin-left: 20px;
     padding: 5px;
     font-size: 1.6rem;
+    color: var(--white-color);
+    background-color: transparent;
+    border: 1px solid var(--white-color);
+    border-radius: 4px;
 }
 
 #theme-toggle {
