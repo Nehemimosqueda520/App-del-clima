@@ -1,5 +1,6 @@
 import { fetchWeatherForecast, fetchCurrentWeatherByCoords } from './api.js';
 import { t } from './lang.js';
+import { showToast } from './toast.js';
 
 const footer = document.getElementById('footer');
 
@@ -8,14 +9,14 @@ export async function searchWeather() {
   try {
     const data = await fetchWeatherForecast(cityInput);
     if (data.error) {
-      alert(t('errorFetching'));
+      showToast(t('errorFetching'), 'error');
       return;
     }
     updateWeatherCards(data);
     saveCityToHistory(cityInput);
   } catch (error) {
     console.error('Hubo un error al obtener datos del clima:', error);
-    alert(t('errorGeneric'));
+    showToast(t('errorGeneric'), 'error');
   }
 }
 
@@ -59,7 +60,7 @@ export async function toggleHourlyForecast(cardId) {
   } else {
     const city = document.getElementById('city-input').value.trim();
     if (!city) {
-      alert(t('hourlyWarning'));
+      showToast(t('hourlyWarning'), 'warning');
       return;
     }
 
@@ -90,13 +91,13 @@ async function getHourlyForecast(city, index) {
   try {
     const data = await fetchWeatherForecast(city, index + 1);
     if (data.error) {
-      alert(t('errorHourlyFetching'));
+      showToast(t('errorHourlyFetching'), 'error');
       return null;
     }
     return data.forecast.forecastday[index].hour;
   } catch (error) {
     console.error('Hubo un error al obtener datos del clima por horas:', error);
-    alert(t('errorHourlyGeneric'));
+    showToast(t('errorHourlyGeneric'), 'error');
     return null;
   }
 }
