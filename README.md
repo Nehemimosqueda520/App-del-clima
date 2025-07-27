@@ -45,4 +45,6 @@ La selección modifica el parámetro `lang` utilizado al consultar la API y trad
 
 Gracias al *service worker* la aplicación cuenta con una página de respaldo cuando no hay conexión a Internet.
 Si intentas navegar estando offline se mostrará `offline.html` para indicar la falta de conectividad.
+El service worker usa una estrategia *stale-while-revalidate* para los archivos estáticos, lo que mantiene el caché actualizado en segundo plano cada vez que haya una nueva versión disponible.
+Cada vez que se instala una actualización el propio servicio incrementa el número de versión de la caché y elimina las anteriores para evitar conflictos.
 
