@@ -61,16 +61,6 @@ body {
     align-items: center;
 }
 
-#lang-select {
-    margin-left: 20px;
-    padding: 5px;
-    font-size: 1.6rem;
-    color: var(--white-color);
-    background-color: transparent;
-    border: 1px solid var(--white-color);
-    border-radius: 4px;
-}
-
 #theme-toggle {
     margin-left: 20px;
     background: none;
@@ -234,12 +224,6 @@ body.dark-mode a {
 
 body.dark-mode #theme-toggle {
     color: var(--white-color);
-}
-
-body.dark-mode #lang-select {
-    background-color: var(--gray-dark-color);
-    color: var(--white-color);
-    border: none;
 }
 
 #theme-toggle:hover {
