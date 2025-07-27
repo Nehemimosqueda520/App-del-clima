@@ -1,0 +1,20 @@
+{
+  "name": "ClimAPP",
+  "short_name": "ClimAPP",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3d94f0",
+  "icons": [
+    {
+      "src": "images/sun.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/sun.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
