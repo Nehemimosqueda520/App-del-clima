@@ -6,6 +6,7 @@ const ASSETS_TO_CACHE = [
   '/js/main.js',
   '/js/api.js',
   '/js/ui.js',
+  '/js/lang.js',
   '/js/toggleTheme.js',
   '/images/sun.png',
   '/manifest.json'

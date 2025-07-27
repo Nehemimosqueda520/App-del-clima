@@ -31,3 +31,8 @@ Esto abrirá un servidor en `http://localhost:3000` desde donde podrás probar l
 
 Desde la barra de navegación puedes cambiar entre el tema claro y oscuro. La elección se guarda en `localStorage` para mantener la preferencia en futuras visitas.
 
+## Soporte multilenguaje
+
+También desde la barra de navegación puedes seleccionar el idioma (español o inglés).
+La selección modifica el parámetro `lang` utilizado al consultar la API y traduce automáticamente los textos de la interfaz.
+
