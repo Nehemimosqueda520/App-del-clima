@@ -71,11 +71,9 @@ export async function toggleHourlyForecast(cardId) {
       const hourlyForecastContent = hourlyForecast.map(hour => {
         return `
           <div class="hourly-weather">
-            <hr>
-            <h3>${hour.time.slice(11, 16)}</h3>
+            <span class="hourly-time">${hour.time.slice(11, 16)}</span>
             <img src="${hour.condition.icon}" alt="${hour.condition.text}">
-            <p>${hour.condition.text}</p>
-            <p>${hour.temp_c}°C</p>
+            <span class="hourly-temp">${hour.temp_c}°C</span>
           </div>
         `;
       }).join('');
