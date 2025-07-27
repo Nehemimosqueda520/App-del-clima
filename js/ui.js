@@ -1,4 +1,5 @@
 import { fetchWeatherForecast, fetchCurrentWeatherByCoords } from './api.js';
+import { t } from './lang.js';
 
 const footer = document.getElementById('footer');
 
@@ -7,14 +8,14 @@ export async function searchWeather() {
   try {
     const data = await fetchWeatherForecast(cityInput);
     if (data.error) {
-      alert('No se pudo obtener la información del clima. Inténtalo de nuevo.');
+      alert(t('errorFetching'));
       return;
     }
     updateWeatherCards(data);
     saveCityToHistory(cityInput);
   } catch (error) {
     console.error('Hubo un error al obtener datos del clima:', error);
-    alert('Hubo un error al obtener datos del clima. Por favor, inténtalo de nuevo más tarde.');
+    alert(t('errorGeneric'));
   }
 }
 
@@ -58,7 +59,7 @@ export async function toggleHourlyForecast(cardId) {
   } else {
     const city = document.getElementById('city-input').value.trim();
     if (!city) {
-      alert('Introduce una ciudad para ver el pronóstico por horas.');
+      alert(t('hourlyWarning'));
       return;
     }
 
@@ -89,13 +90,13 @@ async function getHourlyForecast(city, index) {
   try {
     const data = await fetchWeatherForecast(city, index + 1);
     if (data.error) {
-      alert('No se pudo obtener la información del clima por horas. Inténtalo de nuevo.');
+      alert(t('errorHourlyFetching'));
       return null;
     }
     return data.forecast.forecastday[index].hour;
   } catch (error) {
     console.error('Hubo un error al obtener datos del clima por horas:', error);
-    alert('Hubo un error al obtener datos del clima por horas. Por favor, inténtalo de nuevo más tarde.');
+    alert(t('errorHourlyGeneric'));
     return null;
   }
 }

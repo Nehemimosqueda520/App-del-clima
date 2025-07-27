@@ -12,6 +12,9 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3d94f0">
 </head>
 <body>
 
@@ -21,6 +24,10 @@
         </div>
         <div class="toggle-mode">
             <div class="logo">ClimAPP</div>
+            <select id="lang-select" aria-label="Idioma">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+            </select>
             <button id="theme-toggle" aria-label="Cambiar tema">
                 <i id="theme-icon" class='bx bx-moon'></i>
             </button>
@@ -82,5 +89,14 @@
                 </a>
         </footer>
     <script type="module" src="js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').catch(function(err) {
+                    console.log('Service Worker registration failed:', err);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
