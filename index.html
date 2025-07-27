@@ -12,6 +12,9 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3d94f0">
 </head>
 <body>
 
@@ -82,5 +85,14 @@
                 </a>
         </footer>
     <script type="module" src="js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').catch(function(err) {
+                    console.log('Service Worker registration failed:', err);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
