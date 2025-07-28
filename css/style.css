@@ -201,6 +201,8 @@ a:hover {
 
 .expand-btn:hover {
     background-color: var(--dark-color);
+    transform: scale(1.1);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .expand-btn:active {
