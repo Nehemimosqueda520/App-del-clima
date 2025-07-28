@@ -48,7 +48,7 @@ self.addEventListener('fetch', event => {
         cache.put(event.request, clone);
         return response;
       } catch {
-        return caches.match('/offline.html');
+        return caches.match('/offline/offline.html');
       }
     }
 
