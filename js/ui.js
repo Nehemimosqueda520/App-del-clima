@@ -52,36 +52,41 @@ function updateWeatherCards(data) {
 
 export async function toggleHourlyForecast(cardId) {
   const card = document.getElementById(cardId);
-  const hourlyForecastDiv = card.querySelector('.hourly-forecast');
+  const existingCard = document.getElementById(`${cardId}-hourly-card`);
 
-  if (hourlyForecastDiv.style.display === 'block') {
-    hourlyForecastDiv.style.display = 'none';
+  if (existingCard) {
+    existingCard.remove();
     footer.classList.add('absolute');
-  } else {
-    const city = document.getElementById('city-input').value.trim();
-    if (!city) {
-      showToast(t('hourlyWarning'), 'warning');
-      return;
-    }
+    return;
+  }
 
-    const index = cardId === 'today' ? 0 : cardId === 'tomorrow' ? 1 : 2;
-    const hourlyForecast = await getHourlyForecast(city, index);
+  const city = document.getElementById('city-input').value.trim();
+  if (!city) {
+    showToast(t('hourlyWarning'), 'warning');
+    return;
+  }
 
-    if (hourlyForecast) {
-      const hourlyForecastContent = hourlyForecast.map(hour => {
-        return `
-          <div class="hourly-weather">
-            <span class="hourly-time">${hour.time.slice(11, 16)}</span>
-            <img src="${hour.condition.icon}" alt="${hour.condition.text}">
-            <span class="hourly-temp">${hour.temp_c}°C</span>
-          </div>
-        `;
-      }).join('');
+  const index = cardId === 'today' ? 0 : cardId === 'tomorrow' ? 1 : 2;
+  const hourlyForecast = await getHourlyForecast(city, index);
 
-      hourlyForecastDiv.innerHTML = hourlyForecastContent;
-      hourlyForecastDiv.style.display = 'block';
-      footer.classList.remove('absolute');
-    }
+  if (hourlyForecast) {
+    const hourlyForecastContent = hourlyForecast.map(hour => {
+      return `
+        <div class="hourly-weather">
+          <span class="hourly-time">${hour.time.slice(11, 16)}</span>
+          <img src="${hour.condition.icon}" alt="${hour.condition.text}">
+          <span class="hourly-temp">${hour.temp_c}°C</span>
+        </div>
+      `;
+    }).join('');
+
+    const hourlyCard = document.createElement('div');
+    hourlyCard.className = 'weather-card hourly-card';
+    hourlyCard.id = `${cardId}-hourly-card`;
+    hourlyCard.innerHTML = `<div class="hourly-forecast">${hourlyForecastContent}</div>`;
+
+    card.insertAdjacentElement('afterend', hourlyCard);
+    footer.classList.remove('absolute');
   }
 }
 
