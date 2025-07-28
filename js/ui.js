@@ -51,12 +51,14 @@ function updateWeatherCards(data) {
 }
 
 export async function toggleHourlyForecast(cardId) {
-  const card = document.getElementById(cardId);
   const existingCard = document.getElementById(`${cardId}-hourly-card`);
+  const container = document.getElementById('hourly-cards');
 
   if (existingCard) {
     existingCard.remove();
-    footer.classList.add('absolute');
+    if (!container.hasChildNodes()) {
+      footer.classList.add('absolute');
+    }
     return;
   }
 
@@ -85,7 +87,7 @@ export async function toggleHourlyForecast(cardId) {
     hourlyCard.id = `${cardId}-hourly-card`;
     hourlyCard.innerHTML = `<div class="hourly-forecast">${hourlyForecastContent}</div>`;
 
-    card.insertAdjacentElement('afterend', hourlyCard);
+    container.appendChild(hourlyCard);
     footer.classList.remove('absolute');
   }
 }

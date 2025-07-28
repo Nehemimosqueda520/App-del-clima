@@ -125,6 +125,15 @@ body {
     margin-top: 10px;
 }
 
+/* Container for hourly forecast cards */
+#hourly-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
 /* Estilos para el buscador */
 .search-box {
     margin-top: 20px;
