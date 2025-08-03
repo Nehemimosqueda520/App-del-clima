@@ -7,9 +7,7 @@ Este proyecto es un ejemplo sencillo de una aplicación de clima. Utiliza la API
 ```
 / (raíz del proyecto)
 ├── index.html              # Página principal
-├── offline.html            # Página mostrada si no hay conexión
 ├── manifest.json           # Configuración para PWA
-├── sw.js                   # Service worker
 ├── css/
 │   └── style.css           # Estilos de la aplicación
 ├── js/
@@ -17,11 +15,15 @@ Este proyecto es un ejemplo sencillo de una aplicación de clima. Utiliza la API
 │   ├── ui.js               # Manipulación del DOM y lógica de presentación
 │   ├── lang.js             # Gestión de idioma y traducciones
 │   ├── toggleTheme.js      # Cambio entre tema claro y oscuro
+│   ├── toast.js            # Componente para notificaciones
 │   └── main.js             # Punto de entrada que inicializa la app
 ├── images/
 │   └── sun.png             # Icono de ejemplo
+├── test/
+│   └── server.test.js      # Pruebas del servidor
 ├── server.js               # Servidor HTTP básico para desarrollo
-└── package.json            # Configuración de npm
+├── package.json            # Configuración de npm
+└── package-lock.json       # Registro de dependencias
 ```
 
 Para iniciar el servidor local ejecuta:
@@ -31,6 +33,14 @@ npm start
 ```
 
 Esto abrirá un servidor en `http://localhost:3000` desde donde podrás probar la aplicación.
+
+## Pruebas
+
+Para ejecutar las pruebas automáticas utiliza:
+
+```bash
+npm test
+```
 
 ## Modo claro y oscuro
 

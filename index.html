@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ClimAPP ofrece pronósticos del tiempo precisos y actuales para tu ciudad.">
+    <meta name="keywords" content="climapp, clima, pronóstico del tiempo, meteorología, weather">
+    <meta name="author" content="Nehemias Mosqueda">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ClimAPP - Pronósticos del tiempo">
+    <meta property="og:description" content="Consulta el clima actualizado y pronósticos para tu ciudad con ClimAPP.">
+    <meta property="og:image" content="images/sun.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
     <title>ClimAPP</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -54,7 +63,6 @@
                 <p id="today-description"></p>
                 <p id="today-temperature"></p>
                 <button class="expand-btn" onclick="toggleHourlyForecast('today')">Mostrar por horas</button>
-                <div class="hourly-forecast" id="today-hourly-forecast"></div>
             </div>
             
             <div class="weather-card" id="tomorrow">
@@ -63,7 +71,6 @@
                 <p id="tomorrow-description"></p>
                 <p id="tomorrow-temperature"></p>
                 <button class="expand-btn" onclick="toggleHourlyForecast('tomorrow')">Mostrar por horas</button>
-                <div class="hourly-forecast" id="tomorrow-hourly-forecast"></div>
             </div>
             
             <div class="weather-card" id="day-after-tomorrow">
@@ -72,9 +79,9 @@
                 <p id="day-after-tomorrow-description"></p>
                 <p id="day-after-tomorrow-temperature"></p>
                 <button class="expand-btn" onclick="toggleHourlyForecast('day-after-tomorrow')">Mostrar por horas</button>
-                <div class="hourly-forecast" id="day-after-tomorrow-hourly-forecast"></div>
             </div>
         </div>
+        <div id="hourly-cards"></div>
 
         <footer id="footer" class="absolute">
 
@@ -90,14 +97,5 @@
         </footer>
     <div id="toast-container"></div>
     <script type="module" src="js/main.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js').catch(function(err) {
-                    console.log('Service Worker registration failed:', err);
-                });
-            });
-        }
-    </script>
 </body>
 </html>
