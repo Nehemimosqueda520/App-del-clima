@@ -1,5 +1,3 @@
-import { useTheme } from "../hooks/useTheme";
-
 type NavbarProps = {
   theme: "light" | "dark";
   setTheme: () => void;
@@ -7,8 +5,6 @@ type NavbarProps = {
 
 
 export default function Navbar({ theme, setTheme }: NavbarProps) {
-
-
   return (
     <>
     <nav className="navbar">
