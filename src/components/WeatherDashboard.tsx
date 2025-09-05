@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { getWeather } from "../services/weather";
 //import WeatherCard from "./WeatherCard";
-import SearchInput from "./searchInput.tsx";
+import SearchInput from "./searchInput";
+import ClimateInfo from "./ClimateInfo";
 
 export default function WeatherDashboard() {
   const [city, setCity] = useState("");
@@ -15,6 +16,7 @@ export default function WeatherDashboard() {
   return (
     <> 
      <SearchInput onSearch={setCity} />
+     <ClimateInfo city={city} data={data} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 export let currentLang = localStorage.getItem('lang') || 'es';
 
-export function setLang(lang) {
+export function setLang(lang: string) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
 }
@@ -36,26 +36,6 @@ const translations = {
   }
 };
 
-export function t(key) {
-  const langSet = translations[currentLang] || translations.es;
-  return langSet[key] || key;
-}
 
-export function applyTranslations() {
-  const cityInput = document.getElementById('city-input');
-  if (cityInput) cityInput.placeholder = t('searchPlaceholder');
 
-  const select = document.getElementById('lang-select');
-  if (select) select.value = currentLang;
 
-  const today = document.querySelector('#today h3');
-  if (today) today.innerText = t('today');
-  const tomorrow = document.querySelector('#tomorrow h3');
-  if (tomorrow) tomorrow.innerText = t('tomorrow');
-  const dayAfter = document.querySelector('#day-after-tomorrow h3');
-  if (dayAfter) dayAfter.innerText = t('dayAfterTomorrow');
-
-  document.querySelectorAll('.expand-btn').forEach(btn => {
-    btn.innerText = t('showHourly');
-  });
-}

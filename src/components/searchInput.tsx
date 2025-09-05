@@ -1,5 +1,6 @@
 export default function SearchInput({ onSearch }: { onSearch: (city: string) => void }) {
   return (
+    <>
 
     <div className="search-box">
     <form>
@@ -19,5 +20,6 @@ export default function SearchInput({ onSearch }: { onSearch: (city: string) => 
         </button>
       </form>
     </div>
+    </>
   );
 }

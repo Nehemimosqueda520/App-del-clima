@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export function useTheme() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">(localStorage.getItem("theme") as "light" | "dark" || "light");
   useEffect(() => { document.body.className = `${theme}-mode`; }, [theme]);
-  return { theme, toggle: () => setTheme(t => t === "light" ? "dark" : "light") };
+  return { theme, setTheme: () => setTheme(t => t === "light" ? "dark" : "light") };
 }

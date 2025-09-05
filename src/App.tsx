@@ -5,11 +5,12 @@ import React from "react";
 
 
 export default function App() {
-  const { theme, toggle } = useTheme();
+  const { theme, setTheme } = useTheme();
+  localStorage.setItem("theme", theme);
 
   return (
     <>
-      <Navbar theme={theme} toggle={toggle} />
+      <Navbar theme={theme} setTheme={setTheme} />
       <WeatherDashboard />
     </>
     );
