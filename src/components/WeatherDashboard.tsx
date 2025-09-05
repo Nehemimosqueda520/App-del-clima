@@ -1,21 +1,20 @@
 import { useState, useEffect } from "react";
 import { getWeather } from "../services/weather";
-import WeatherCard from "./WeatherCard";
-import SearchBar from "./SearchBar";
+//import WeatherCard from "./WeatherCard";
+import SearchInput from "./searchInput.tsx";
 
 export default function WeatherDashboard() {
   const [city, setCity] = useState("");
   const [data, setData] = useState(null);
 
-  useEffect(() => {
+/*   useEffect(() => {
     if (!city) return;
     getWeather(city, "es").then(setData).catch(console.error);
-  }, [city]);
+  }, [city]); */
 
   return (
-    <>
-      <SearchBar onSearch={setCity} />
-      {data && <WeatherCard data={data} />}
+    <> 
+     <SearchInput onSearch={setCity} />
     </>
   );
 }
