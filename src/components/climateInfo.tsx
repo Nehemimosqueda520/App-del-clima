@@ -17,8 +17,8 @@ export default function ClimateInfo({ city, data, lang, setLang }: { city: strin
                    <h3>{time.text}</h3>
                    <img src={time.image} alt={time.text}></img>
                    <p id={`${time.id}-description`}>{time.desc}</p>
-                   <p id={`${time.id}-temperature`}>{time.temp}</p>
-                   <button className="expand-btn" /* onClick={() => toggleHourlyForecast(time.id)} */>Mostrar por horas</button>
+                   <p id={`${time.id}-temperature`}>{time.temp} °C</p>
+                   <button className="expand-btn" /* onClick={() => toggleHourlyForecast(time.id)} */>{translations[lang].showHourly}</button>
             </div>
             ))}
         </div>

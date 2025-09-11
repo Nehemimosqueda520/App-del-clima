@@ -1,4 +1,3 @@
-import { getWeather } from "../services/weather";
 
 export default function SearchInput({ onSearch, lang, setLang }: { onSearch: (city: string) => void, lang: "en" | "es", setLang: (lang: "en" | "es") => void }) {
   return (
@@ -14,7 +13,7 @@ export default function SearchInput({ onSearch, lang, setLang }: { onSearch: (ci
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             e.preventDefault();
-            getWeather(e.currentTarget.value, lang);
+            onSearch(e.currentTarget.value);;
           }
         }}
       />
@@ -22,7 +21,6 @@ export default function SearchInput({ onSearch, lang, setLang }: { onSearch: (ci
           e.preventDefault();
           const input = document.getElementById("city-input") as HTMLInputElement;
           onSearch(input.value);
-          getWeather(input.value, lang);
         }}>
           <i className='bx bx-search'></i>
         </button>
