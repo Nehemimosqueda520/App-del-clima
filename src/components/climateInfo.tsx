@@ -1,10 +1,13 @@
-export default function ClimateInfo({ city, data }: { city: string; data: any }) {
+import { translations } from "../i18n/translations";
+
+
+export default function ClimateInfo({ city, data, lang, setLang }: { city: string; data: any; lang: "en" | "es"; setLang: (lang: "en" | "es") => void }) {
     const times = [{
-        text: "Today", id: "today", temp: "n", desc: "n", image: "n"
+        text: translations[lang].today, id: "today", temp: data?.current?.temp_c, desc: data?.current?.condition?.text, image: data?.current?.condition?.icon
     }, {
-        text: "Tomorrow", id: "tomorrow", temp: "n", desc: "n", image: "n"
+        text: translations[lang].tomorrow, id: "tomorrow", temp: data?.forecast?.forecastday[1]?.day?.avgtemp_c, desc: data?.forecast?.forecastday[1]?.day?.condition?.text, image: data?.forecast?.forecastday[1]?.day?.condition?.icon
     }, {
-        text: "Day After Tomorrow", id: "day-after-tomorrow", temp: "n", desc: "n", image: "n"
+        text: translations[lang].dayAfterTomorrow, id: "day-after-tomorrow", temp: data?.forecast?.forecastday[2]?.day?.avgtemp_c, desc: data?.forecast?.forecastday[2]?.day?.condition?.text, image: data?.forecast?.forecastday[2]?.day?.condition?.icon
     }];
     return (
         <>

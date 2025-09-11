@@ -1,15 +1,5 @@
-export let currentLang = localStorage.getItem('lang') || 'es';
 
-export function setLang(lang: string) {
-  currentLang = lang;
-  localStorage.setItem('lang', lang);
-}
-
-export function getLang() {
-  return currentLang;
-}
-
-const translations = {
+ export const translations = {
   es: {
     searchPlaceholder: 'Buscar ciudad',
     showHourly: 'Mostrar por horas',
@@ -35,7 +25,3 @@ const translations = {
     errorHourlyFetching: 'Could not retrieve hourly weather information. Please try again.'
   }
 };
-
-
-
-

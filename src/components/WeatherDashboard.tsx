@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { getWeather } from "../services/weather";
-//import WeatherCard from "./WeatherCard";
+import { useState } from "react";
 import SearchInput from "./searchInput";
 import ClimateInfo from "./ClimateInfo";
 
-export default function WeatherDashboard() {
+
+export default function WeatherDashboard( { lang, setLang }: { lang: "en" | "es"; setLang: (lang: "en" | "es") => void }  ) {
   const [city, setCity] = useState("");
   const [data, setData] = useState(null);
+  ;
 
 /*   useEffect(() => {
     if (!city) return;
@@ -15,8 +15,8 @@ export default function WeatherDashboard() {
 
   return (
     <> 
-     <SearchInput onSearch={setCity} />
-     <ClimateInfo city={city} data={data} />
+     <SearchInput onSearch={setCity} lang={lang} setLang={setLang} />
+     <ClimateInfo city={city} data={data} lang={lang} setLang={setLang} />
     </>
   );
 }

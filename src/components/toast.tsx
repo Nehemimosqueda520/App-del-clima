@@ -1,4 +1,4 @@
-let container;
+/* let container;
 
 export function showToast(message, type = 'info') {
   if (!container) {
@@ -23,4 +23,4 @@ export function showToast(message, type = 'info') {
     toast.classList.remove('show');
     toast.addEventListener('transitionend', () => toast.remove(), { once: true });
   }, 4000);
-}
+} */
