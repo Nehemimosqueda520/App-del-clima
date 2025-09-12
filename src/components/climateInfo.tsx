@@ -57,6 +57,8 @@ export default function ClimateInfo({
             temp: data?.current?.temp_c,
             desc: data?.current?.condition?.text,
             image: data?.current?.condition?.icon,
+            wind: data?.current?.wind_kph,
+            humidity: data?.current?.humidity,g
         },
         {
             text: translations[lang].tomorrow,
@@ -64,6 +66,8 @@ export default function ClimateInfo({
             temp: data?.forecast?.forecastday[1]?.day?.avgtemp_c,
             desc: data?.forecast?.forecastday[1]?.day?.condition?.text,
             image: data?.forecast?.forecastday[1]?.day?.condition?.icon,
+            wind: data?.forecast?.forecastday[1]?.day?.maxwind_kph,
+            humidity: data?.forecast?.forecastday[1]?.day?.avghumidity,
         },
         {
             text: translations[lang].dayAfterTomorrow,
