@@ -71,8 +71,8 @@ body {
     border-radius: 4px;
 }
 #lang-select:hover {
-   transform: scale(1.1);
-   transition: transform 0.3s;
+    transform: scale(1.1);
+    transition: transform 0.3s;
 }
 
 #lang-select option {
@@ -158,7 +158,9 @@ body {
 .search-btn:hover {
     background-color: var(--dark-color);
     transform: scale(1.1);
-    transition: background-color 0.3s, transform 0.3s;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
 }
 
 #footer {
@@ -202,7 +204,9 @@ a:hover {
 .expand-btn:hover {
     background-color: var(--dark-color);
     transform: scale(1.1);
-    transition: background-color 0.3s, transform 0.3s;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
 }
 
 .expand-btn:active {
@@ -232,14 +236,15 @@ a:hover {
         position: static;
     }
 
-    #api-link, #api-image {
+    #api-link,
+    #api-image {
         display: none;
     }
 }
 
 /* Tema oscuro */
 body.dark-mode {
-    background-color: #2D2C2C;
+    background-color: #2d2c2c;
     color: var(--light-color);
 }
 
@@ -277,7 +282,9 @@ body.dark-mode #lang-select option {
 #theme-toggle:hover {
     color: var(--warning-color);
     transform: scale(1.1);
-    transition: color 0.3s, transform 0.3s;
+    transition:
+        color 0.3s,
+        transform 0.3s;
 }
 
 body.dark-mode #theme-toggle:hover {
@@ -307,8 +314,9 @@ body.dark-mode #theme-toggle:hover {
 .recent-city .city-name:hover {
     background-color: var(--primary-color);
     transform: scale(1.1);
-    transition: background-color 0.3s, transform 0.3s;
-
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
 }
 
 body.dark-mode .recent-city .city-name {
@@ -355,7 +363,9 @@ body.dark-mode .recent-city .close-btn {
     background-color: var(--info-color);
     opacity: 0;
     transform: translateX(100%);
-    transition: opacity 0.3s, transform 0.3s;
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
 }
 
 .toast.show {
@@ -363,9 +373,15 @@ body.dark-mode .recent-city .close-btn {
     transform: translateX(0);
 }
 
-.toast.success { background-color: var(--success-color); }
-.toast.error { background-color: var(--danger-color); }
-.toast.warning { background-color: var(--warning-color); }
+.toast.success {
+    background-color: var(--success-color);
+}
+.toast.error {
+    background-color: var(--danger-color);
+}
+.toast.warning {
+    background-color: var(--warning-color);
+}
 
 body.dark-mode .toast {
     color: var(--white-color);
@@ -398,6 +414,20 @@ body.dark-mode .toast {
     height: 40px;
 }
 
+hourly-weather img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Larger state icons */
+.no-data-icon,
+.loading-icon,
+.error-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 8rem;
+}
+
 .hourly-time {
     font-weight: 500;
     margin-bottom: 4px;
@@ -412,6 +442,20 @@ body.dark-mode .hourly-weather {
     border-color: var(--gray-dark-color);
     color: var(--white-color);
 }
+
+.center {
+    width: 50%;
+    height: 50%;
+    min-height: 100px;
+    margin: 2% auto;
+}
+
+.center h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+}
+
 
 @media (max-width: 480px) {
     .hourly-forecast {
