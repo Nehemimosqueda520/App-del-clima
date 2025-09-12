@@ -41,7 +41,7 @@ export default function ClimateInfo({
             <div className="weather-card center">
                 <h3>{translations[lang].welcome}</h3>
                 <p>{translations[lang].noData}</p>
-                <h3 id="big-icon">
+                <h3>
                     <i className="bx bx-building-house big-icon"> </i>
                 </h3>
             </div>

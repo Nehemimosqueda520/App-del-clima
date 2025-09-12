@@ -115,25 +115,6 @@ body {
     margin-bottom: 10px;
 }
 
-.weather-card p {
-    margin-bottom: 5px;
-}
-
-/* Card that displays hourly forecast */
-.hourly-card {
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* Container for hourly forecast cards */
-#hourly-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    width: 100%;
-}
-
 /* Estilos para el buscador */
 .search-box {
     margin-top: 20px;
@@ -188,6 +169,9 @@ a:hover {
 
 .error-icon {
     color: var(--danger-color);
+    width: 80px;
+    height: 80px;
+    font-size: 8rem;
 }
 
 .error {
@@ -199,36 +183,9 @@ a:hover {
     display: inline-block;
 }
 
-.sticky {
-    position: sticky;
-    bottom: 0;
-}
-
 .absolute {
     position: absolute;
     bottom: 0;
-}
-
-.expand-btn {
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-}
-
-.expand-btn:hover {
-    background-color: var(--dark-color);
-    transform: scale(1.1);
-    transition:
-        background-color 0.3s,
-        transform 0.3s;
-}
-
-.expand-btn:active {
-    background-color: var(--light-color);
-    color: var(--dark-color);
 }
 
 @media (max-width: 768px) {
@@ -307,159 +264,6 @@ body.dark-mode #lang-select option {
 body.dark-mode #theme-toggle:hover {
     color: var(--warning-color);
 }
-
-.recent-cities {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.recent-city {
-    display: inline-flex;
-    align-items: center;
-    margin: 3px;
-}
-
-.recent-city .city-name {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--secondary-color);
-    color: var(--white-color);
-    cursor: pointer;
-}
-
-.recent-city .city-name:hover {
-    background-color: var(--primary-color);
-    transform: scale(1.1);
-    transition:
-        background-color 0.3s,
-        transform 0.3s;
-}
-
-body.dark-mode .recent-city .city-name {
-    background-color: var(--gray-dark-color);
-    color: var(--white-color);
-}
-
-body.dark-mode .recent-city .city-name:hover {
-    background-color: var(--primary-color);
-}
-
-.recent-city .close-btn {
-    margin-left: 5px;
-    border: 2px solid var(--danger-color);
-    color: var(--white-color);
-    font-size: 1.6rem;
-    cursor: pointer;
-    background-color: var(--danger-color);
-    border-radius: 20%;
-}
-
-body.dark-mode .recent-city .close-btn {
-    color: var(--white-color);
-    background-color: var(--danger-color);
-}
-
-/* Toast notifications */
-#toast-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    z-index: 10000;
-}
-
-.toast {
-    min-width: 200px;
-    margin-top: 10px;
-    padding: 10px 15px;
-    border-radius: 4px;
-    color: var(--white-color);
-    background-color: var(--info-color);
-    opacity: 0;
-    transform: translateX(100%);
-    transition:
-        opacity 0.3s,
-        transform 0.3s;
-}
-
-.toast.show {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.toast.success {
-    background-color: var(--success-color);
-}
-.toast.error {
-    background-color: var(--danger-color);
-}
-.toast.warning {
-    background-color: var(--warning-color);
-}
-
-body.dark-mode .toast {
-    color: var(--white-color);
-}
-
-/* Hourly forecast styles */
-.hourly-forecast {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px 0;
-}
-
-.hourly-weather {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    background-color: var(--white-color);
-    border: 1px solid var(--gray-light-color);
-    border-radius: 8px;
-    padding: 5px 8px;
-    width: max-content;
-}
-
-.hourly-weather img {
-    width: 40px;
-    height: 40px;
-}
-
-hourly-weather img {
-    width: 32px;
-    height: 32px;
-}
-
-/* Larger state icons */
-.no-data-icon,
-.loading-icon,
-.error-icon {
-    width: 80px;
-    height: 80px;
-    font-size: 8rem;
-}
-
-.hourly-time {
-    font-weight: 500;
-    margin-bottom: 4px;
-}
-
-.hourly-temp {
-    margin-top: 4px;
-}
-
-body.dark-mode .hourly-weather {
-    background-color: var(--gray-darker-color);
-    border-color: var(--gray-dark-color);
-    color: var(--white-color);
-}
-
 .center {
     width: 50%;
     height: 50%;
@@ -473,21 +277,3 @@ body.dark-mode .hourly-weather {
     font-size: 2.4rem;
 }
 
-
-@media (max-width: 480px) {
-    .hourly-forecast {
-        flex-direction: column;
-        align-items: stretch;
-        overflow-x: visible;
-    }
-
-    .hourly-weather {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .hourly-weather img {
-        width: 32px;
-        height: 32px;
-    }
-}
