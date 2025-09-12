@@ -4,7 +4,6 @@ interface Props {
     city: string;
     data: any;
     lang: 'en' | 'es';
-    setLang: (lang: 'en' | 'es') => void;
     isLoading: boolean;
     error: string | null;
 }
@@ -13,7 +12,6 @@ export default function ClimateInfo({
     city,
     data,
     lang,
-    setLang,
     isLoading,
     error,
 }: Props) {
@@ -22,7 +20,7 @@ export default function ClimateInfo({
             <div className="weather-card center">
                 <h3>{translations[lang].error}</h3>
                 <p>{error}</p>
-                <h3 >
+                <h3>
                     <i className="bx bx-error big-icon error-icon"> </i>
                 </h3>
             </div>
@@ -43,7 +41,7 @@ export default function ClimateInfo({
             <div className="weather-card center">
                 <h3>{translations[lang].welcome}</h3>
                 <p>{translations[lang].noData}</p>
-                <h3 id="big-icon">
+                <h3>
                     <i className="bx bx-building-house big-icon"> </i>
                 </h3>
             </div>
@@ -58,7 +56,7 @@ export default function ClimateInfo({
             desc: data?.current?.condition?.text,
             image: data?.current?.condition?.icon,
             wind: data?.current?.wind_kph,
-            humidity: data?.current?.humidity,g
+            humidity: data?.current?.humidity,
         },
         {
             text: translations[lang].tomorrow,
@@ -87,9 +85,18 @@ export default function ClimateInfo({
                     <h3>{time.text}</h3>
                     <img src={time.image} alt={time.text} />
                     <p id={`${time.id}-description`}>{time.desc}</p>
-                    <p id={`${time.id}-temperature`}><i className="bx bx-thermometer"> </i>{time.temp} °C</p>
-                    <p id={`${time.id}-wind`}><i className="bx bx-wind"> </i>{time.wind} kph</p>
-                    <p id={`${time.id}-humidity`}><i className="bx bx-droplet"> </i>{time.humidity} %</p>
+                    <p id={`${time.id}-temperature`}>
+                        <i className="bx bx-thermometer"> </i>
+                        {time.temp} °C
+                    </p>
+                    <p id={`${time.id}-wind`}>
+                        <i className="bx bx-wind"> </i>
+                        {time.wind} kph
+                    </p>
+                    <p id={`${time.id}-humidity`}>
+                        <i className="bx bx-droplet"> </i>
+                        {time.humidity} %
+                    </p>
                     <p id={`${time.id}-location`}>
                         <i className="bx bx-map"> </i>
                         {data?.location?.name}, {data?.location?.country}
