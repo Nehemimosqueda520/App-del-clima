@@ -17,7 +17,7 @@ export default function App() {
                 lang={lang}
                 setLang={setLang}
             />
-            <WeatherDashboard lang={lang} setLang={setLang} />
+            <WeatherDashboard lang={lang} />
             <Footer />
         </>
     );
