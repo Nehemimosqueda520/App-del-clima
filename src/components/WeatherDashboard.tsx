@@ -14,6 +14,8 @@
  }) {
    const [city, setCity] = useState("");
    const [data, setData] = useState<any>(null);
+   const [isLoading, setIsLoading] = useState(false);
+   const [error, setError] = useState<string | null>(null);
 
   const handleSearch = (newCity: string) => {
     // Updating the city triggers the effect below which fetches the data
@@ -25,11 +27,17 @@
     if (!city) return;
 
     const fetchWeather = async () => {
+       setIsLoading(true);
+       setError(null);
        try {
          const weatherData = await getWeather(city, lang);
          setData(weatherData);
-       } catch (error) {
+       } catch (error: any) {
+         setError(error?.message || "Error fetching weather data");
+         setData(null);
          console.error(error);
+       } finally {
+         setIsLoading(false);
        }
      };
 
@@ -39,7 +47,14 @@
    return (
      <>
        <SearchInput onSearch={handleSearch} lang={lang} setLang={setLang} />
-       <ClimateInfo city={city} data={data} lang={lang} setLang={setLang} /> 
+       <ClimateInfo
+         city={city}
+         data={data}
+         lang={lang}
+         setLang={setLang}
+         isLoading={isLoading}
+         error={error}
+       /> 
      </>
    );
  }
