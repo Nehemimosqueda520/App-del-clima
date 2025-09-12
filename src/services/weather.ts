@@ -37,12 +37,13 @@ export async function getWeather(city: string, lang: string) {
     const url = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${q}&days=3&lang=${l}&aqi=no&alerts=no`;
 
     const res = await fetch(url);
-    if (!res.ok)
-        throw new Error(
-            `Error fetching weather: ${res.status} ${res.statusText}`
-        );
+    const data = await res.json();
 
-    const data = (await res.json()) as WeatherResponse;
+    if (!res.ok || (data && data.error)) {
+        const message =
+            data?.error?.message ?? `${res.status} ${res.statusText}`;
+        throw new Error(`Error fetching weather: ${message}`);
+    }
 
-    return data;
+    return data as WeatherResponse;
 }

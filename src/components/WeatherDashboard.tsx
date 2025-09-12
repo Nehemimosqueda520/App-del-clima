@@ -18,8 +18,6 @@
    const [error, setError] = useState<string | null>(null);
 
   const handleSearch = (newCity: string) => {
-    // Updating the city triggers the effect below which fetches the data
-    // using the currently selected language.
     setCity(newCity);
   };
 

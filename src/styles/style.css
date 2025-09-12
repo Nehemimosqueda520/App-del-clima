@@ -447,7 +447,7 @@ body.dark-mode .hourly-weather {
     width: 50%;
     height: 50%;
     min-height: 100px;
-    margin: 2% auto;
+    margin: 4em auto;
 }
 
 .center h3 {
