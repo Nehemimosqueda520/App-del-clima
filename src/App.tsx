@@ -1,6 +1,6 @@
 import WeatherDashboard from './components/WeatherDashboard';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from './components/navbar';
+import Footer from './components/footer';
 import { useTheme } from './hooks/useTheme';
 import { useLang } from './hooks/useLang';
 
