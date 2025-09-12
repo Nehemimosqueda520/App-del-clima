@@ -1,4 +1,5 @@
 import { translations } from "../languages/translations";
+import { useState } from "react";
 
 export default function SearchInput({
     onSearch,
@@ -9,6 +10,7 @@ export default function SearchInput({
     lang: 'en' | 'es';
     setLang: (lang: 'en' | 'es') => void;
 }) {
+    const [error, setError] =useState<string>('');
     return (
         <>
             <div className="search-box">
@@ -21,7 +23,13 @@ export default function SearchInput({
                         onKeyDown={(e) => {
                             if (e.key === 'Enter') {
                                 e.preventDefault();
-                                onSearch(e.currentTarget.value);
+                                 const value = e.currentTarget.value;
+                                if (!value.trim()) {
+                                    setError(translations[lang].emptyCity);
+                                    return;
+                                }
+                                setError("");
+                                onSearch(value);
                             }
                         }}
                     />
@@ -34,12 +42,19 @@ export default function SearchInput({
                             const input = document.getElementById(
                                 'city-input'
                             ) as HTMLInputElement;
-                            onSearch(input.value);
+                             const value = input.value;
+                            if (!value.trim()) {
+                                setError(translations[lang].emptyCity);
+                                return;
+                            }
+                            setError("");
+                            onSearch(value);
                         }}
                     >
                         <i className="bx bx-search"></i>
                     </button>
                 </form>
+                {error && <p className="error">{error}</p>}
             </div>
         </>
     );

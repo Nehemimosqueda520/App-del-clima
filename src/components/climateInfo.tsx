@@ -22,8 +22,8 @@ export default function ClimateInfo({
             <div className="weather-card center">
                 <h3>{translations[lang].error}</h3>
                 <p>{error}</p>
-                <h3 id="big-icon">
-                    <i className="bx bx-error"> </i>
+                <h3 >
+                    <i className="bx bx-error big-icon error-icon"> </i>
                 </h3>
             </div>
         );
@@ -33,7 +33,7 @@ export default function ClimateInfo({
         return (
             <div className="weather-card center">
                 <h3>{translations[lang].loading}</h3>
-                <i className="bx bx-loader-circle bx-spin"></i>
+                <i className="bx bx-loader-circle bx-spin big-icon"></i>
             </div>
         );
     }
@@ -44,7 +44,7 @@ export default function ClimateInfo({
                 <h3>{translations[lang].welcome}</h3>
                 <p>{translations[lang].noData}</p>
                 <h3 id="big-icon">
-                    <i className="bx bx-building-house"> </i>
+                    <i className="bx bx-building-house big-icon"> </i>
                 </h3>
             </div>
         );
@@ -69,6 +69,8 @@ export default function ClimateInfo({
             text: translations[lang].dayAfterTomorrow,
             id: 'day-after-tomorrow',
             temp: data?.forecast?.forecastday[2]?.day?.avgtemp_c,
+            wind: data?.forecast?.forecastday[2]?.day?.maxwind_kph,
+            humidity: data?.forecast?.forecastday[2]?.day?.avghumidity,
             desc: data?.forecast?.forecastday[2]?.day?.condition?.text,
             image: data?.forecast?.forecastday[2]?.day?.condition?.icon,
         },
@@ -81,10 +83,17 @@ export default function ClimateInfo({
                     <h3>{time.text}</h3>
                     <img src={time.image} alt={time.text} />
                     <p id={`${time.id}-description`}>{time.desc}</p>
-                    <p id={`${time.id}-temperature`}>{time.temp} °C</p>
-                    <button className="expand-btn">
-                        {translations[lang].showHourly}
-                    </button>
+                    <p id={`${time.id}-temperature`}><i className="bx bx-thermometer"> </i>{time.temp} °C</p>
+                    <p id={`${time.id}-wind`}><i className="bx bx-wind"> </i>{time.wind} kph</p>
+                    <p id={`${time.id}-humidity`}><i className="bx bx-droplet"> </i>{time.humidity} %</p>
+                    <p id={`${time.id}-location`}>
+                        <i className="bx bx-map"> </i>
+                        {data?.location?.name}, {data?.location?.country}
+                    </p>
+                    <p id={`${time.id}-localtime`}>
+                        <i className="bx bx-time"> </i>
+                        {data?.location?.localtime}
+                    </p>
                 </div>
             ))}
         </div>

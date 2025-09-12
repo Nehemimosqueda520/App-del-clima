@@ -18,6 +18,7 @@ export const translations = {
         error: 'No se pudo obtener la información del clima.',
         welcome: 'Bienvenido/a a ClimApp',
         loading: 'Cargando...',
+        emptyCity: 'Por favor, ingresa una ciudad',
     },
     en: {
         searchPlaceholder: 'Search city',
@@ -38,5 +39,6 @@ export const translations = {
         error: 'Could not retrieve weather information.',
         welcome: 'Welcome to ClimApp',
         loading: 'Loading...',
+        emptyCity: 'Please enter a city',
     },
 };
