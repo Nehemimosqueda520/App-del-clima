@@ -1,16 +1,14 @@
-import { translations } from "../languages/translations";
-import { useState } from "react";
+import { translations } from '../languages/translations';
+import { useState } from 'react';
 
 export default function SearchInput({
     onSearch,
     lang,
-    setLang,
 }: {
     onSearch: (city: string) => void;
     lang: 'en' | 'es';
-    setLang: (lang: 'en' | 'es') => void;
 }) {
-    const [error, setError] =useState<string>('');
+    const [error, setError] = useState<string>('');
     return (
         <>
             <div className="search-box">
@@ -19,16 +17,16 @@ export default function SearchInput({
                         type="text"
                         className="search-input"
                         id="city-input"
-                        placeholder= {translations[lang].searchPlaceholder}
+                        placeholder={translations[lang].searchPlaceholder}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter') {
                                 e.preventDefault();
-                                 const value = e.currentTarget.value;
+                                const value = e.currentTarget.value;
                                 if (!value.trim()) {
                                     setError(translations[lang].emptyCity);
                                     return;
                                 }
-                                setError("");
+                                setError('');
                                 onSearch(value);
                             }
                         }}
@@ -42,12 +40,12 @@ export default function SearchInput({
                             const input = document.getElementById(
                                 'city-input'
                             ) as HTMLInputElement;
-                             const value = input.value;
+                            const value = input.value;
                             if (!value.trim()) {
                                 setError(translations[lang].emptyCity);
                                 return;
                             }
-                            setError("");
+                            setError('');
                             onSearch(value);
                         }}
                     >
