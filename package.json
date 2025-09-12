@@ -1,15 +1,31 @@
 {
-  "name": "climapp",
-  "version": "1.0.0",
-  "description": "Simple weather app",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "test": "node --test"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^3.1.10"
-  }
+    "name": "climapp",
+    "version": "1.0.0",
+    "description": "Simple weather app",
+    "main": "server.js",
+    "scripts": {
+        "test": "node --test",
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "format": "prettier --write ."
+    },
+    "author": "Nehemias Mosqueda",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/react": "^19.1.12",
+        "@types/react-dom": "^19.1.9",
+        "@vitejs/plugin-react": "^5.0.2",
+        "nodemon": "^3.1.10",
+        "prettier": "3.6.2",
+        "typescript": "^5.9.2",
+        "vite": "^7.1.4"
+    },
+    "dependencies": {
+        "react": "^19.1.1",
+        "react-dom": "^19.1.1",
+        "react-loading": "^2.0.3",
+        "react-loading-indicators": "^1.0.1",
+        "react-lottie": "^1.2.10"
+    }
 }

@@ -1,101 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ClimAPP ofrece pronósticos del tiempo precisos y actuales para tu ciudad.">
-    <meta name="keywords" content="climapp, clima, pronóstico del tiempo, meteorología, weather">
-    <meta name="author" content="Nehemias Mosqueda">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="ClimAPP - Pronósticos del tiempo">
-    <meta property="og:description" content="Consulta el clima actualizado y pronósticos para tu ciudad con ClimAPP.">
-    <meta property="og:image" content="images/sun.png">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="es_ES">
-    <title>ClimAPP</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="ClimAPP ofrece pronósticos del tiempo precisos y actuales para tu ciudad."
+        />
+        <meta
+            name="keywords"
+            content="climapp, clima, pronóstico del tiempo, meteorología, weather"
+        />
+        <meta name="author" content="Nehemias Mosqueda" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="ClimAPP - Pronósticos del tiempo" />
+        <meta
+            property="og:description"
+            content="Consulta el clima actualizado y pronósticos para tu ciudad con ClimAPP."
+        />
+        <meta property="og:image" content="images/sun.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_ES" />
+        <title>ClimAPP</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+        />
 
-    <!-- box icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!-- box icons -->
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
 
-    <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css">
+        <!-- custom css -->
+        <link rel="stylesheet" href="src/styles/style.css" />
 
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#3d94f0">
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="menu">
-            <!-- Puedes agregar más elementos al menú si es necesario -->
-        </div>
-        <div class="toggle-mode">
-            <div class="logo">ClimAPP</div>
-            <select id="lang-select" aria-label="Idioma">
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-            </select>
-            <button id="theme-toggle" aria-label="Cambiar tema">
-                <i id="theme-icon" class='bx bx-moon'></i>
-            </button>
-        </div>
-    </nav>
-
-    
-        <div class="search-box">
-            <!-- Usamos un formulario para el buscador -->
-            <form onsubmit="event.preventDefault(); searchWeather();">
-                <input type="text" class="search-input" id="city-input" placeholder="Buscar ciudad">
-                <button type="submit" class="search-btn">
-                    <i class='bx bx-search'></i>
-                </button>
-            </form>
-        </div>
-
-        <div id="recent-cities" class="recent-cities"></div>
-
-        <div id="clima-info">
-            <div class="weather-card" id="today">
-                <h3>Hoy</h3>
-                <img src="" alt="Hoy">
-                <p id="today-description"></p>
-                <p id="today-temperature"></p>
-                <button class="expand-btn" onclick="toggleHourlyForecast('today')">Mostrar por horas</button>
-            </div>
-            
-            <div class="weather-card" id="tomorrow">
-                <h3>Mañana</h3>
-                <img src="" alt="Mañana">
-                <p id="tomorrow-description"></p>
-                <p id="tomorrow-temperature"></p>
-                <button class="expand-btn" onclick="toggleHourlyForecast('tomorrow')">Mostrar por horas</button>
-            </div>
-            
-            <div class="weather-card" id="day-after-tomorrow">
-                <h3>Pasado mañana</h3>
-                <img src="" alt="Pasado mañana">
-                <p id="day-after-tomorrow-description"></p>
-                <p id="day-after-tomorrow-temperature"></p>
-                <button class="expand-btn" onclick="toggleHourlyForecast('day-after-tomorrow')">Mostrar por horas</button>
-            </div>
-        </div>
-        <div id="hourly-cards"></div>
-
-        <footer id="footer" class="absolute">
-
-                <h4>Created by Nehemias Mosqueda ©</h4>
-
-
-                <h4 id="api-link">Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a></h4>
-      
-
-                <a  id="api-image" href="https://www.weatherapi.com/" title="Free Weather API">
-                    <img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0">
-                </a>
-        </footer>
-    <div id="toast-container"></div>
-    <script type="module" src="js/main.js"></script>
-</body>
+        <link rel="manifest" href="manifest.json" />
+        <meta name="theme-color" content="#3d94f0" />
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>
