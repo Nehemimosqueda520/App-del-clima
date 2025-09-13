@@ -97,14 +97,6 @@ export default function ClimateInfo({
                         <i className="bx bx-droplet"> </i>
                         {time.humidity} %
                     </p>
-                    <p id={`${time.id}-location`}>
-                        <i className="bx bx-map"> </i>
-                        {data?.location?.name}, {data?.location?.country}
-                    </p>
-                    <p id={`${time.id}-localtime`}>
-                        <i className="bx bx-time"> </i>
-                        {data?.location?.localtime}
-                    </p>
                 </div>
             ))}
         </div>

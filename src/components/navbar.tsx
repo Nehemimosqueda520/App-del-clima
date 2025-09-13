@@ -14,8 +14,11 @@ export default function Navbar({
     return (
         <>
             <nav className="navbar">
+                <div className="logo">
+                    <img src="images/sun.png" alt="ClimAPP" className="logo-img" />
+                    ClimAPP 
+                </div>
                 <div className="toggle-mode">
-                    <div className="logo">ClimAPP</div>
                     <select
                         id="lang-select"
                         aria-label="Idioma"

@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export function useLang() {
     const [lang, setLang] = useState<'en' | 'es'>(
-           (localStorage.getItem("lang") as "en" | "es") || "en"
-  );
+        (localStorage.getItem('lang') as 'en' | 'es') || 'en'
+    );
 
-  useEffect(() => {
-    document.documentElement.lang = lang;
-    localStorage.setItem("lang", lang);
-  }, [lang]);
+    useEffect(() => {
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+    }, [lang]);
 
-  return { lang, setLang };
+    return { lang, setLang };
 }
